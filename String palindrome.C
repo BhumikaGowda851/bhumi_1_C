@@ -1,38 +1,18 @@
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
-
-int isPalindrome(char *str) {
-    int length = strlen(str);
-    char *start = str;           
-    char *end = str + length - 1;    
-
-    while (start < end) {
-        while (!isalnum(*start) && start < end) start++;
-        while (!isalnum(*end) && start < end) end--;
-        if (tolower(*start) != tolower(*end)) {
-            return 0;  
-        }
-
-        start++;
-        end--;
-    }
-
-    return 1;  
-}
-
+#include<stdio.h>
+#include<string.h>
 int main() {
-    char str[100];
-
-    printf("Enter a string: ");
-    fgets(str, sizeof(str), stdin);
-    str[strcspn(str, "\n")] = '\0';
-
-    if (isPalindrome(str)) {
-        printf("The string is a palindrome.\n");
-    } else {
-        printf("The string is not a palindrome.\n");
+    char str[24],rev[24];
+    printf("Enter the string");
+    scanf("%s",str);
+    strcpy(rev,str);
+    strrev(rev);
+    if(strcmp(str,rev)==0)
+    {
+    printf("the string is palindrome");
     }
-
+    else
+    {
+        printf("the string is not palindrome ");
+    }
     return 0;
 }
